@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            /* background-image: url('https://slavaguide.com/images/LOTS_WIFE_SALT_PILLAR.webp'); */
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            font-family: 'Din Alternate';
+            text-align: center;
+            color: white;
+            background-color: skyblue;
+            margin: 0;
+        }
+
+        .h1 {
+            text-align: left;
+            size: 30pt;
+            background-color: red;
+        }
+
+
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+            width: 400px;
+            padding: 70px 20px;
+            /* border: 3px solid green; */
+            text-align: center;
+        }
+
+        .typing-demo {
+            width: 22ch;
+            animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid;
+            font-family: monospace;
+            font-size: 2em;
+        }
+
+        #tweet_frame {
+            /* display: flex;
+    justify-content: center;
+    align-items: center; */
+            position: absolute;
+            left: 50%;
+            top: 30%;
+            transform: translate(-0%, 150%);
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent
+            }
+        }
+
+
+        h1 {
+            /* background: rgba(0,0,0,0.5); */
+            padding: 10px;
+        }
+
+        .video-container {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 100vh;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        #text {
+
+            position: absolute;
+            background: rgba(0, 0, 0, 0.5);
+            color: #FFFFFF;
+            left: 50%;
+            top: 30%;
+            transform: translate(-50%, -50%);
+
+
+        }
+
+        /* merge with above css */
+        #parent {
+            position: relative;
+            /* or absolute or fixed */
+        }
+
+        video {
+            position: relative;
+            left: 50%;
+
+            /* % of surrounding element */
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.active{
+    background-color:skyblue;
+}
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+      
+    </style>
+
+
+</head>
+
+<body>
+
+
+
+    <div id="parent">
+
+
+        <video autoplay muted loop id="myVideo">
+            <source src="{{ url_for('static', filename = 'butterfly_blue_4.mov') }}" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+
+
+    
+
+ 
+        <div id="text">
+
+            <ul>
+                <li><a href="/index">Home</a></li>
+                <li><a href="/about" class="active">About</a></li>
+          
+            </ul>
+
+
+            <h1>About Lament_AI</h1>
+
+                    <div>
+                        <p>Lament_AI is a #TwitterBot that uses Chat-GPT to create poems about extinct animals from the IUCN Red List of Threatened Animals #NonhumanEmpathy </p></a>
+                    </div>
+                   
+            
+                    </div>
+
+
+     
+
+</body>
+
+
+</html>
+
+
+
+

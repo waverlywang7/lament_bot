@@ -1,0 +1,1 @@
+web: gunicorn lament_AI:app

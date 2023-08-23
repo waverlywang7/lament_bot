@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            /* background-image: url('https://slavaguide.com/images/LOTS_WIFE_SALT_PILLAR.webp'); */
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            font-family: 'Din Alternate';
+            text-align: center;
+            color: white;
+            background-color: skyblue;
+            margin: 0;
+        }
+
+        .h1 {
+            text-align: left;
+            size: 30pt;
+            background-color: red;
+        }
+
+
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+            width: 400px;
+            padding: 70px 20px;
+            /* border: 3px solid green; */
+            text-align: center;
+        }
+
+        .typing-demo {
+            width: 22ch;
+            animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid;
+            font-family: monospace;
+            font-size: 2em;
+        }
+
+        #tweet_frame {
+            /* display: flex;
+    justify-content: center;
+    align-items: center; */
+            position: absolute;
+            left: 50%;
+            top: 30%;
+            transform: translate(-0%, 150%);
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent
+            }
+        }
+
+
+        h1 {
+            /* background: rgba(0,0,0,0.5); */
+            padding: 10px;
+        }
+
+        .video-container {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 100vh;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        #text {
+
+            position: absolute;
+            background: rgba(0, 0, 0, 0.5);
+            color: #FFFFFF;
+            left: 50%;
+            top: 30%;
+            transform: translate(-50%, -50%);
+
+
+        }
+
+        /* merge with above css */
+        #parent {
+            position: relative;
+            /* or absolute or fixed */
+        }
+
+        video {
+            position: relative;
+            left: 50%;
+
+            /* % of surrounding element */
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+a:hover:not(.active){
+  background-color: #111;
+}
+      
+    </style>
+
+
+</head>
+
+<body>
+
+
+
+    <div id="parent">
+
+
+        <video autoplay muted loop id="myVideo">
+            <source src="{{ url_for('static', filename = 'butterfly_blue_4.mov') }}" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+
+
+    
+
+ 
+        <div id="text">
+
+            <ul>
+                <li><a href="/index" class="active">Home</a></li>
+                <li><a href="/about" > About</a></li>
+           
+            </ul>
+
+
+            <h1>Lament_AI</h1>
+
+            <h2> Everyday at 8 AM, a new chat-gpt generated poem is released on Twitter mourning an extinct animal<h2>
+                    <div>
+                        <p>The animal is</p></a>
+                    </div>
+                    <div>
+                        <p id="animal"> {{animal}}</p></a>
+
+
+                    </div>
+                    <div>
+                        <p>The chat-gpt generated poem is</p></a>
+
+                    </div>
+                    <div id="comment-">
+                        <p id="output"> </p></a>
+
+                        <!-- ACTUALLY WORKED -->
+                        <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+            <script>
+                function update(){
+                    $.get("/data", function(data){
+                        $("#output").html(data)
+                    });
+                }
+                update()
+                var intervalId = setInterval(function() {
+                    update()
+                }, 86400);
+
+            </script> -->
+                    </div>
+
+                    <div class="wrapper">
+                        <div class="center" class="typing-demo">
+
+                            <div id="poem_id"> {{poem}} </div>
+
+                        </div>
+                    </div>
+              
+        </div>
+
+     
+
+        <div id="tweet_frame">
+            <a class="twitter-timeline" data-width="500" data-height="500" data-theme="dark"
+                href="https://twitter.com/lament_AI?ref_src=twsrc%5Etfw">Tweets by lament_AI</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+</body>
+
+
+</html>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+    function update() {
+        $.get("/animal_read", function (data) {
+            $("#animal").html(data)
+        });
+    }
+    update()
+    var intervalId = setInterval(function () {
+        update()
+    }, 60000);
+
+    function update2() {
+        $.get("/poem_read", function (data) {
+            $("#poem_id").html(data)
+        });
+    }
+    update2()
+    var intervalId = setInterval(function () {
+        update2()
+    }, 60000);
+
+</script>
+
