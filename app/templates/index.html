@@ -42,13 +42,13 @@
         }
 
         #tweet_frame {
-            /* display: flex;
-    justify-content: center;
-    align-items: center; */
-            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* position: absolute;
             left: 50%;
             top: 30%;
-            transform: translate(-0%, 150%);
+            transform: translate(-0%, 150%); */
         }
 
         @keyframes typing {
@@ -69,20 +69,9 @@
             padding: 10px;
         }
 
-        .video-container {
-            width: 100vw;
-            height: 100vh;
-        }
 
-        iframe {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100vw;
-            height: 100vh;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-        }
+
+
 
         #text {
 
@@ -96,6 +85,10 @@
 
         }
 
+        .othertext {
+            color: black;
+        }
+
         /* merge with above css */
         #parent {
             position: relative;
@@ -104,43 +97,48 @@
 
         video {
             position: relative;
-            left: 50%;
+            transform: translate(0, -10%)
+                /* left: 50%;
 
-            /* % of surrounding element */
+        
             top: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); */
         }
-        ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
 
-li {
-  float: left;
-}
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+            position: absolute;
+            left: 16px;
+            top: 8px;
+            transform: translate(-11%, -16%);
 
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
+        }
 
-/* Change the link color to #111 (black) on hover */
-a:hover:not(.active){
-  background-color: #111;
-}
-      
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+
+        }
+
+        .topnav a:hover {
+            background-color: #111;
+            color: white;
+        }
+
+        .topnav a.active {
+            background-color: skyblue;
+            color: white;
+        }
     </style>
-
-
 </head>
 
 <body>
+
 
 
 
@@ -148,31 +146,30 @@ a:hover:not(.active){
 
 
         <video autoplay muted loop id="myVideo">
-            <source src="{{ url_for('static', filename = 'butterfly_blue_4.mov') }}" type="video/mp4">
+            <source src="{{ url_for('static', filename = 'butterfly_blue_4_small.mov') }}" type="video/mp4">
             Your browser does not support HTML5 video.
         </video>
 
 
-    
 
- 
+
+
+
+
+
+
         <div id="text">
-
-            <ul>
-                <li><a href="/index" class="active">Home</a></li>
-                <li><a href="/about" > About</a></li>
-           
-            </ul>
-
-
             <h1>Lament_AI</h1>
 
-            <h2> Everyday at 8 AM, a new chat-gpt generated poem is released on Twitter mourning an extinct animal<h2>
+            <h2> Everyday at 8 AM, a new chat-gpt generated poem is released on Twitter mourning an extinct animal from
+                the <a href="https://www.iucnredlist.org/" style="color:skyblue;">IUCN Red List of Threatened
+                    Species</a>
+                <h2>
                     <div>
-                        <p>The animal is</p></a>
+                        <p>The animal of the day is</p></a>
                     </div>
                     <div>
-                        <p id="animal"> {{animal}}</p></a>
+                        <p id="animal"> <a href = {{animal}}> </a>{{animal}} <a></a></p></a>
 
 
                     </div>
@@ -206,10 +203,13 @@ a:hover:not(.active){
 
                         </div>
                     </div>
-              
+
         </div>
 
-     
+        <div id="othertext">
+            <p>Check out more tweets </p>
+        </div>
+
 
         <div id="tweet_frame">
             <a class="twitter-timeline" data-width="500" data-height="500" data-theme="dark"
@@ -247,4 +247,3 @@ a:hover:not(.active){
     }, 60000);
 
 </script>
-

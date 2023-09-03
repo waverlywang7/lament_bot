@@ -5,24 +5,21 @@ import tweepy
 
 # importing os module 
 import os
-import pprint
   
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 from dotenv import dotenv_values
 import requests
 
 
 from requests_oauthlib import OAuth1
-import base64
 import re
 
 import pandas as pd
-import numpy as np
 
 
 
 # Load environment variables from .env file
-load_dotenv(".env")
+load_dotenv(find_dotenv("app/.env"))
 
 # Set up logging
 print("Starting Twitter bot")

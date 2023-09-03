@@ -1,27 +1,14 @@
 # Authors: CS-World Domination Summer19 - JG
 try:
-    from flask import render_template, redirect, url_for, request, send_from_directory, flash
+    from flask import render_template
 except:
     print("Make sure to pip install Flask twilio")
 from app import app
-import os
 
-from werkzeug.utils import secure_filename
-from werkzeug.datastructures import  FileStorage
+
 from apscheduler.schedulers.background import BackgroundScheduler
 from app import bot_code
-import random
-from apscheduler.events import EVENT_JOB_ERROR, EVENT_JOB_EXECUTED
-import time
-try:
-    from PIL import Image
-    import PIL.ImageOps
-    from numpy import asarray
-    import numpy
-                
 
-except:
-    print("Make sure to pip install Pillow")
 
 animal = "Not generated yet"
 poem = "Not generated yet"
